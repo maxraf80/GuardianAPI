@@ -1,6 +1,6 @@
 package udacity.com.guardianapi;
 
-public class New {
+public class News {
 
     private String photo;
     private String title;
@@ -10,7 +10,7 @@ public class New {
     private String category2;
     private String url;
 
-    public New(String mPhoto, String mTitle, String mJournalist, String mDate, String mUrl) {
+    public News(String mPhoto, String mTitle, String mJournalist, String mDate, String mUrl) {
 
         photo = mPhoto;
         title = mTitle;
@@ -19,7 +19,7 @@ public class New {
         url = mUrl;
     }
 
-    public New(String mPhoto, String mTitle, String mJournalist, String mDate, String mCategory1, String mCategory2, String mUrl) {
+    public News(String mPhoto, String mTitle, String mJournalist, String mDate, String mCategory1, String mCategory2, String mUrl) {
 
         photo = mPhoto;
         title = mTitle;
