@@ -24,6 +24,7 @@
             android:maxLines="2"
             android:text="A simple app that fetches art history news from the Guardian API. "
             android:textColor="@color/HeadLine"
+            android:id="@+id/title"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -36,21 +37,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Written by: " />
+                android:text="@string/writenBy"/>
 
             <TextView
                 android:id="@+id/author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Jamie Doward"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8sp"
-                android:text="Date: " />
+                android:text="@string/date" />
 
             <TextView
                 android:id="@+id/date"
@@ -100,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick=""
-            android:text="read story"
+            android:text="@string/ReadURL"
             android:textAllCaps="true"
             android:textColor="@color/MainColor"
             android:textSize="20sp"
