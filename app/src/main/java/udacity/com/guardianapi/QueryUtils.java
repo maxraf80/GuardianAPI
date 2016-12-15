@@ -1,13 +1,22 @@
 package udacity.com.guardianapi;
 
 
+import android.text.TextUtils;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 public final class QueryUtils {
@@ -57,5 +66,33 @@ public final class QueryUtils {
                 }
         return jsonResponse;}
 
+    private static String readFromStream(InputStream inputStream) throws IOException{
+        StringBuilder output = new StringBuilder();
+        if (inputStream !=null){
+            InputStreamReader inputStreamReader= new InputStreamReader(inputStream, Charset.forName("UTF-8"));
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+            String line =reader.readLine();
+            while (line !=null){
+            output.append(line);
+            line = reader.readLine();
+            }}
+return output.toString();
+    }
+
+    private static List<News> extracFeatureFromJson(String newsJSON){
+        if(TextUtils.isEmpty(newsJSON)){return null;}
+
+        try{
+    List<News>newses = new ArrayList<>();
+        JSONObject object = new JSONObject(newsJSON);
+        JSONArray array = object.getJSONArray("response");
+        JSONArray array1= object.getJSONArray("results");
+if (array.length()>0){for(int i=0;i<array1.length();i++){
+    JSONObject result = array1.getJSONObject(i);
+
 
 }
+    }
+} catch (JSONException e) {
+            Log.e(LOG_TAG, "Problem parsing the earthquake JSON results" , e); }
+    return null;}}
