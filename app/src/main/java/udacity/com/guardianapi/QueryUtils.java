@@ -83,12 +83,16 @@ return output.toString();
         if(TextUtils.isEmpty(newsJSON)){return null;}
 
         try{
-    List<News>newses = new ArrayList<>();
+    List<News> newses = new ArrayList<>();
         JSONObject object = new JSONObject(newsJSON);
-        JSONArray array = object.getJSONArray("response");
-        JSONArray array1= object.getJSONArray("results");
-if (array.length()>0){for(int i=0;i<array1.length();i++){
-    JSONObject result = array1.getJSONObject(i);
+
+        JSONObject response = object.getJSONObject("response");
+
+        JSONArray results= response.getJSONArray("results");
+
+            if (response.length()>0){for(int i=0;i<results.length();i++){
+
+                JSONObject result = results.getJSONObject(i);
 
 
 }
