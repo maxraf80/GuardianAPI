@@ -90,10 +90,11 @@ return output.toString();
 
         JSONArray results= response.getJSONArray("results");
 
-            if (response.length()>0){for(int i=0;i<results.length();i++){
+            if (results.length()>0){for(int i=0;i<results.length();i++){
 
                 JSONObject result = results.getJSONObject(i);
 
+                JSONObject 
 
 }
     }
