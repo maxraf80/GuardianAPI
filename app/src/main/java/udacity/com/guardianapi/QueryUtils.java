@@ -84,15 +84,49 @@ return output.toString();
 
         try{
     List<News> newses = new ArrayList<>();
-        JSONObject object = new JSONObject(newsJSON);
 
+        JSONObject object = new JSONObject(newsJSON);
         JSONObject response = object.getJSONObject("response");
 
-        JSONArray results= response.getJSONArray("results");
+            JSONArray results= response.getJSONArray("results");
 
             if (results.length()>0){for(int i=0;i<results.length();i++){
 
                 JSONObject result = results.getJSONObject(i);
+
+                JSONArray fields = result.getJSONArray("fields");
+                JSONObject image = fields.getJSONObject(0);
+                String imagelink =  image.getString("thumbnail");
+
+                String webTitle="";
+                if (result.has("webTitle")){webTitle= result.getString("webTitle");}
+                else {webTitle="No title to display";}
+
+
+                JSONArray tags = result.getJSONArray("tags");
+                if (tags.length()>0){for (int j=0;j<tags.length();j++);{
+                JSONObject tag = tags.getJSONObject(j);
+
+
+
+                }
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private String api = "http://content.guardianapis.com/search?show-fields=thumbnail&q=";
     TextView topic;
     Button checkButton;
-    private static final String APIKEY = "&api-key=6b3d9da0-5381-4fa9-9470-6cebb228a388";
+    private static final String APIKEY = "&api-key=6b3d9da0-5381-4fa9-9470-6cebb228a388&show-tags=contributor";
     boolean conection;
     String find;
     private TextView EmptyStateTextView;
@@ -55,17 +55,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     if (find.length() > 0) {
                         find = find.replace(" ", "+");
                     }
-                    toSearch = api + find + APIKEY;
-                }
-
-            }
-
-
-        });
-
-
-    }
-
+                    toSearch = api + find + APIKEY; }}});}
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
@@ -76,7 +66,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
         View loadingindicator = findViewById(R.id.loading_indicator);
         loadingindicator.setVisibility(View.GONE);
-        Empty
+        EmptyStateTextView.setText("No news matching this topic");
+        adapter.clear();
+        if(data !=null && !data.isEmpty()){adapter.addAll(data); }
 
     }
 
