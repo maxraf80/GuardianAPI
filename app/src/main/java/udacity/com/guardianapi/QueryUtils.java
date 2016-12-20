@@ -99,17 +99,21 @@ return output.toString();
                 String imagelink =  image.getString("thumbnail");
 
                 String webTitle="";
-                if (result.has("webTitle")){webTitle= result.getString("webTitle");}
+
+            if (result.has("webTitle")){webTitle= result.getString("webTitle");}
                 else {webTitle="No title to display";}
 
 
-                JSONArray tags = result.getJSONArray("tags");
-                if (tags.length()>0){for (int j=0;j<tags.length();j++);{
+            JSONArray tags = result.getJSONArray("tags");
+
+            if (tags.length()>0){for (int j=0;j<tags.length();j++){
                 JSONObject tag = tags.getJSONObject(j);
+            if (tag.has("webTitle")){webTitle=tag.getString("webTitle");}
+                else {webTitle=" ";}}
 
 
+            String date = result.getString("webPublicationDate");
 
-                }
 
 
 

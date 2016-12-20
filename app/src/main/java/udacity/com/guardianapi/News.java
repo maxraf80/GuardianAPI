@@ -7,7 +7,7 @@ public class News {
     private String journalist;
     private String date;
     private String category1;
-    private String category2;
+
     private String url;
 
     public News(String mPhoto, String mTitle, String mJournalist, String mDate, String mUrl) {
@@ -19,13 +19,12 @@ public class News {
         url = mUrl;
     }
 
-    public News(String mPhoto, String mTitle, String mJournalist, String mDate, String mCategory1, String mCategory2, String mUrl) {
+    public News(String mPhoto, String mTitle, String mJournalist, String mDate, String mCategory1, String mUrl) {
 
         photo = mPhoto;
         title = mTitle;
         journalist = mJournalist;
         category1 = mCategory1;
-        category2 = mCategory2;
         date = mDate;
         url = mUrl;
     }
@@ -34,7 +33,6 @@ public class News {
     public String getJournalist(){return journalist;}
     public String getDate(){return date;}
     public String getCategory1(){return category1;}
-    public String getCategory2(){return category2;}
     public String getUrl(){return url;}
 
 }
