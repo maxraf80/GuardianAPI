@@ -28,6 +28,9 @@ public class News {
         date = mDate;
         url = mUrl;
     }
+
+
+
     public String getPhoto(){return photo;}
     public String getTitle(){return title;}
     public String getJournalist(){return journalist;}

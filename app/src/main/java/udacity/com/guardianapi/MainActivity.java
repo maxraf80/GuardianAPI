@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     boolean conection;
     String find;
     private TextView EmptyStateTextView;
+    String toSearch = "";
 
 
     @Override
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setEmptyView(findViewById(R.id.empty_list_view));
         adapter = new NewsAdapter(this, new ArrayList<News>());
+        listView.setAdapter(adapter);
 
 
         topic = (TextView) findViewById(R.id.editText);
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 if (conection == true) {
                     find = topic.getText().toString();
-                    String toSearch = "";
+
                     if (find.length() > 0) {
                         find = find.replace(" ", "+");
                     }
@@ -59,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-        return null;
+
+
+        return new News(this, toSearch());
     }
 
     @Override
