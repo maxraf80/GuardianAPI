@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         topic = (TextView) findViewById(R.id.editText);
         checkButton = (Button) findViewById(R.id.searchButton);
         checkButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -57,7 +57,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     if (find.length() > 0) {
                         find = find.replace(" ", "+");
                     }
-                    toSearch = api + find + APIKEY; }}});}
+                    toSearch = api + find + APIKEY; }
+
+
+
+
+
+
+
+            }});}
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
