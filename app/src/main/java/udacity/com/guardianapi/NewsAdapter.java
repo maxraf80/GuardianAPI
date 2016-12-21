@@ -45,8 +45,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         TextView themeTextView = (TextView) listItemView.findViewById(R.id.theme);
         themeTextView.setText(news.getCategory1());
 
-        TextView theme2TextView = (TextView) listItemView.findViewById(R.id.theme2);
-        theme2TextView.setText(news.getCategory2());
+
 
         return listItemView;
     }

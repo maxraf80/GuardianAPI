@@ -61,10 +61,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-
-
-        return new NewsLoader(this, toSearch);
-    }
+        return new NewsLoader(this, toSearch);  }
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
@@ -72,9 +69,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         loadingindicator.setVisibility(View.GONE);
         EmptyStateTextView.setText("No news matching this topic");
         adapter.clear();
-        if(data !=null && !data.isEmpty()){adapter.addAll(data); }
-
-    }
+        if(data !=null && !data.isEmpty()){adapter.addAll(data); }}
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
