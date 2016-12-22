@@ -3,6 +3,7 @@ package udacity.com.guardianapi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -11,8 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.id.empty;
+import static udacity.com.guardianapi.R.layout.news;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
 
@@ -23,16 +28,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final String APIKEY = "&api-key=6b3d9da0-5381-4fa9-9470-6cebb228a388&show-tags=contributor";
     boolean conection;
     String find;
-    private TextView EmptyStateTextView;
+    TextView EmptyStateTextView;
     String toSearch = "";
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportLoaderManager().initLoader(0, null, this);
+        getSupportLoaderManager().restartLoader(0, null, MainActivity.this);
         ListView listView = (ListView) findViewById(R.id.list);
+
+
+        EmptyStateTextView = (TextView) findViewById (R.id.empty_list_view);
         listView.setEmptyView(findViewById(R.id.empty_list_view));
         adapter = new NewsAdapter(this, new ArrayList<News>());
         listView.setAdapter(adapter);
@@ -46,8 +55,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onClick(View view) {
                 ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    conection = true;           } else {
+
+
+                   } else {
                     conection = false;
                 }
 
@@ -69,12 +81,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
         View loadingindicator = findViewById(R.id.loading_indicator);
         loadingindicator.setVisibility(View.GONE);
-        EmptyStateTextView.setText("No news matching this topic");
+
         adapter.clear();
         if(data !=null && !data.isEmpty()){adapter.addAll(data); }}
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
-
-    }
-}
+        adapter.clear(); }}

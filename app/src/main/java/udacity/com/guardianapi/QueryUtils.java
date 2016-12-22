@@ -97,9 +97,9 @@ public final class QueryUtils {
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
-
+        List<News> newses = new ArrayList<>();
         try {
-            List<News> newses = new ArrayList<>();
+
 
             JSONObject object = new JSONObject(newsJSON);
             JSONObject response = object.getJSONObject("response");
