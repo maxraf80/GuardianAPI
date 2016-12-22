@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportLoaderManager().initLoader(0, null, this);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setEmptyView(findViewById(R.id.empty_list_view));
         adapter = new NewsAdapter(this, new ArrayList<News>());
