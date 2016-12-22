@@ -46,7 +46,7 @@ public final class QueryUtils {
 
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
-        if (url == null) {
+        if (url == null ) {
             return jsonResponse;
         }
 
@@ -111,9 +111,9 @@ public final class QueryUtils {
 
                     JSONObject result = results.getJSONObject(i);
 
-                    JSONArray fields = result.getJSONArray("fields");
-                    JSONObject image = fields.getJSONObject(0);
-                    String imagelink = image.getString("thumbnail");
+                    JSONObject fields = result.getJSONObject("fields");
+
+                    String imagelink = fields.getString("thumbnail");
 
                     String webTitle = "";
 
@@ -156,6 +156,6 @@ public final class QueryUtils {
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
         }
-        return null;
+        return newses;
     }
 }

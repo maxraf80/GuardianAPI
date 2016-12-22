@@ -100,7 +100,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick=""
             android:text="@string/ReadURL"
             android:textAllCaps="true"
             android:textColor="@color/MainColor"
