@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    conection = true;
-                } else {
+                    conection = true;           } else {
                     conection = false;
                 }
 
@@ -59,12 +58,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         find = find.replace(" ", "+");
                     }
                     toSearch = api + find + APIKEY; }
-
-
-
-
-
-
 
             }});}
 
