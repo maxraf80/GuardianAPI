@@ -1,23 +1,22 @@
 package udacity.com.guardianapi;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.id.empty;
-import static udacity.com.guardianapi.R.layout.news;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
 
@@ -39,13 +38,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
         getSupportLoaderManager().restartLoader(0, null, MainActivity.this);
         ListView listView = (ListView) findViewById(R.id.list);
-
-
         EmptyStateTextView = (TextView) findViewById (R.id.empty_list_view);
         listView.setEmptyView(findViewById(R.id.empty_list_view));
         adapter = new NewsAdapter(this, new ArrayList<News>());
         listView.setAdapter(adapter);
-
+        listView.setOnClickListener( new AdapterView.OnItemClickListener(){
+         @Override
+         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            News currentNew = adapter.getItem(position);
+             Uri newsURI = Uri.parse(currentNew.getUrl());
+             Intent websiteIntent = new Intent(Intent.ACTION_VIEW, newsURI);
+             startActivity(websiteIntent);}}
 
         topic = (TextView) findViewById(R.id.editText);
         checkButton = (Button) findViewById(R.id.searchButton);
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onClick(View view) {
                 ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-                
+
                 if (networkInfo != null && networkInfo.isConnected()) {
 
 
