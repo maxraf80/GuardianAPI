@@ -113,10 +113,12 @@ public final class QueryUtils {
                 for (int i = 0; i < results.length(); i++) {
 
                     JSONObject result = results.getJSONObject(i);
+                    String imagelink="";
+                    if (result.has("fields")) {
+                        JSONObject fields = result.getJSONObject("fields");
+                        imagelink = fields.getString("thumbnail");
+                    }
 
-                    JSONObject fields = result.getJSONObject("fields");
-
-                    String imagelink = fields.getString("thumbnail");
 
                     String webTitle = "";
 
