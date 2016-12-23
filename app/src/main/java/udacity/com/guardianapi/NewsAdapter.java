@@ -46,7 +46,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         themeTextView.setText(news.getCategory1());
 
 
-
         return listItemView;
     }
 }

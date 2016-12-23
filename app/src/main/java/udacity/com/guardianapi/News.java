@@ -30,12 +30,28 @@ public class News {
     }
 
 
+    public String getPhoto() {
+        return photo;
+    }
 
-    public String getPhoto(){return photo;}
-    public String getTitle(){return title;}
-    public String getJournalist(){return journalist;}
-    public String getDate(){return date;}
-    public String getCategory1(){return category1;}
-    public String getUrl(){return url;}
+    public String getTitle() {
+        return title;
+    }
+
+    public String getJournalist() {
+        return journalist;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getCategory1() {
+        return category1;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 
 }

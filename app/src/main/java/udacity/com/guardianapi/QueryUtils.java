@@ -1,9 +1,12 @@
 package udacity.com.guardianapi;
+
 import android.text.TextUtils;
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,7 +49,7 @@ public final class QueryUtils {
 
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
-        if (url == null ) {
+        if (url == null) {
             return jsonResponse;
         }
 
@@ -123,7 +126,7 @@ public final class QueryUtils {
                         webTitle = "No title to display";
                     }
 
-                    String journalist="";
+                    String journalist = "";
                     JSONArray tags = result.getJSONArray("tags");
 
                     if (tags.length() > 0) {
@@ -132,27 +135,39 @@ public final class QueryUtils {
                             if (tag.has("webTitle")) {
                                 journalist = tag.getString("webTitle");
                             } else {
-                                journalist = " ";  } }
+                                journalist = " ";
+                            }
+                        }
 
                         String date;
-                    if (result.has("webPublicationDate")){
-                     date = result.getString("webPublicationDate");}
-                        else {date = "No available date";}
+                        if (result.has("webPublicationDate")) {
+                            date = result.getString("webPublicationDate");
+                        } else {
+                            date = "No available date";
+                        }
 
                         String category;
-                    if (result.has("sectionName")){category=result.getString("sectionName");}
-                        else {category="no category";}
+                        if (result.has("sectionName")) {
+                            category = result.getString("sectionName");
+                        } else {
+                            category = "no category";
+                        }
 
-                    String website;
+                        String website;
 
-                        if (result.has("webUrl")){website=result.getString("webUrl");}else
-                        {website="https://www.theguardian.com";}
+                        if (result.has("webUrl")) {
+                            website = result.getString("webUrl");
+                        } else {
+                            website = "https://www.theguardian.com";
+                        }
 
-                 News news = new News(imagelink,webTitle,journalist,date,category,website);
-                newses.add(news);
+                        News news = new News(imagelink, webTitle, journalist, date, category, website);
+                        newses.add(news);
 
 
-                    }}}
+                    }
+                }
+            }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
         }
