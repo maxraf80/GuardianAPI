@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Dackground">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Jamie Doward"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -58,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Aug 18 , 2016"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -78,16 +80,7 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/theme2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:background="@drawable/rectangle"
-                android:gravity="center"
-                android:text="culture"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+
         </LinearLayout>
 
         <View
@@ -106,5 +99,5 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
 

@@ -6,12 +6,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="50dp">
+    android:background="@color/Dackground"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@color/Dackground"
         android:orientation="horizontal">
 
         <EditText
@@ -20,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:hint="Write your topic" />
+            android:hint="@string/topic" />
 
         <Button
             android:id="@+id/searchButton"
@@ -28,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
-            android:text="search" />
+            android:text="@string/search" />
 
     </LinearLayout>
 
@@ -54,7 +56,7 @@
         android:id="@+id/empty_list_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="List view is empty" />
+        android:text="@string/ListView" />
 
 </RelativeLayout>
 

@@ -3,8 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="HeadLine">#33e9d1</color>
-    <color name="DarkerHeadline">#28BAA7</color>
-    <color name="RectangleShape">#a9e3db</color>
+    <color name="HeadLine">#84ba28</color>
+    <color name="DarkerHeadline">#5c821c</color>
+    <color name="RectangleShape">#5c821c</color>
     <color name="MainColor">#000</color>
+    <color name="Dackground">#2884ba</color>
 </resources>

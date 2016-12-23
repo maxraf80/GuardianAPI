@@ -3,4 +3,7 @@
     <string name="writenBy">Written by</string>
     <string name="date">Date</string>
     <string name="ReadURL">Read Story</string>
+    <string name="ListView">No news to show</string>
+    <string name="topic">Write your topic</string>
+    <string name="search">search</string>
 </resources>
